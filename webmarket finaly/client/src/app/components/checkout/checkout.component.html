@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <h3>you can double-click each field for auto fill from account details</h3>
+        <h2>if you're smarter, press <button (click)="fill()">HERE</button>, and I fill all fields for you:)</h2>
+
+        <span *ngIf="alert" class="alert">{{msg}}</span>
+
+        <form [formGroup]="addressForm" (ngSubmit)="checkOut()">
+            <input id="firstName" type="text" formControlName="firstName" placeholder="First Name"
+                (dblclick)="dblclick($event)">
+            <input id="lastName" type="text" formControlName="lastName" placeholder="Last Name"
+                (dblclick)="dblclick($event)">
+            <input id="address" type="text" formControlName="address" placeholder="Address"
+                (dblclick)="dblclick($event)">
+            <input id="city" type="text" formControlName="city" placeholder="City" (dblclick)="dblclick($event)">
+            <input id="dateShipping" type="date" formControlName="dateShipping" placeholder="Date Shipping"
+                (dblclick)="dblclick($event)">
+            <input *ngIf="!flag" type="button" (click)="next()" value="next step">
+
+            <div *ngIf="flag" [formGroup]="addressForm" (ngSubmit)="checkOut()">
+                <input type="number" name="ccNumber" formControlName="ccNumber">
+                <input type="month" min="{{year}}-{{month}}" max="{{year+5}}-{{month}}" value="{{year}}-{{month}}"
+                    name="ccValid" formControlName="ccValid">
+                <input type="number" min="100" max="999" name="CCV" formControlName="CCV">
+                <input type="submit" value="check out">
+            </div>
+        </form>
+
+        <div *ngIf="success" class="finish">
+            <h2>the order is successful</h2>
+            <button (click)="webmarket()">back to webmarket</button>
+            <button (click)="save($event)">save order details</button>
+            <a href="http://localhost:3000/myorder.txt" download="order" target="_blank"></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+* {
+    flex: 0 1 auto;
+    /* font-family: 'Barlow Condensed', sans-serif; */
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+h2, h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    text-align: center;
+    /* text-decoration-color: orange !important;
+    text-decoration: overline; */
+}
+.p{
+    border-left: 2px solid orange;
+    padding-left: 10px;
+}
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+button {
+    border-radius: 0;
+    overflow: visible;
+    margin: 0;
+    text-transform: none;
+}
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    /* background-image: linear-gradient(red, yellow); */
+}
+
+.login input[type="email"] {
+    background-color: #d51c4a8a !important;
+}
+
+.btnFrom {
+    width: 50%;
+    background-color: #d51c4a;
+}
+
+.socialBtn, .logout {
+    width: 100%;
+    background-color: #2f416e;
+    border-color: #5a6c9b;
+    /* border-color: #2f416e; */
+}
+
+.logout:hover, .socialBtn:hover {
+    background-color: #25304b;
+    border-color: #1e2942;
+}
+
+.logout:not(:disabled):not(.disabled):active, .socialBtn:not(:disabled):not(.disabled):active {
+    background-color: #1e2942;
+}
+
+.logout:focus-within, .socialBtn:focus-within {
+    background-color: #2f3c5c;
+    border-color: #2f3c5c;
+}
+
+.logout {
+    width: 40%;
+}
+
+.pic {
+    border-radius: 50%;
+}
+
+.socMedDe {
+    text-align: center;
+}
+
+.card {
+    width: 30%;
+    align-self: start;
+    margin: 0 auto;
+    padding: 35px 20px;
+
+    border-radius: 0 0 0.35rem 0.35rem;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .35);
+}
+
+.storeImg {
+    max-width: 100%;
+}
+
+.alert {
+    text-align: center;
+    color: red;
+    font-size: 1.2em;
+    font-weight: 900;
+    display: block;
+    position: absolute;
+    top: 25px;
+    /* right: 2%; */
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+}
+
+.hrAlert{
+    margin: 25px 0;
+}

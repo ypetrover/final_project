@@ -1,0 +1,9 @@
+
+        Your order:
+
+        product-name          quantity        unit-price         final-price
+       fsadsdf                    6                 22               132
+       fsadsdf                    1                 22               22
+       fsadsdf                    1                 22               22
+       milk 3%                    4                 4.9               19.6
+       milk 3%, healthy                    1                 7.8               7.8

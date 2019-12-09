@@ -1,0 +1,34 @@
+.appHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: lightskyblue;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    justify-content: space-around;
+    position: relative;
+    top: 10vh;
+    text-align: center;
+}
+
+.appLogin, .appAbout, .appInfo, .appRegister {
+    width: 33vw;
+    height: 80vh;
+}
+
+.appLogin , .appRegister {
+    background-color: lightsalmon;
+}
+
+.appAbout {
+    background-color: lightgreen;
+}
+
+.appInfo {
+    background-color: lightgoldenrodyellow;
+}

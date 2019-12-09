@@ -1,0 +1,63 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    text-align: center;
+    padding: 15px;
+    background-color: paleturquoise;
+}
+
+tr:nth-child(Odd){
+    background-color: oldlace;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+img {
+    width: 60px;
+}
+
+.container {
+    height: 100vh;
+}
+
+.card {
+
+    padding: 50px 35px 25px 35px;
+    border-radius: 0 0 0.35rem 0.35rem;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .35);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerOrder{
+    display: flex;
+    align-items: center;
+}
+
+.buttons, .pay {
+    width: 50%;
+}
+
+.buttons {
+    
+    justify-content: flex-end;
+    padding-right: 0;
+}
+
+.highlight {
+    background: yellow;
+}

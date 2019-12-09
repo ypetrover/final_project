@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <h2>register our store in two simple steps</h2>
+
+        <span *ngIf="alert" class="alert">{{msg}}</span>
+
+        <form *ngIf="!done" [formGroup]="registerForm" (ngSubmit)="nextStep()">
+            <input type="text" formControlName="ID" placeholder="ID">
+            <input type="email" formControlName="email" placeholder="email">
+            <input type="password" formControlName="password" placeholder="password">
+            <input type="password" formControlName="confirm" placeholder="confirm password">
+            <input type="submit" value="next step">
+        </form>
+
+        <form *ngIf="next" [formGroup]="registerForm" (ngSubmit)="register()">
+            <input type="text" formControlName="fName" placeholder="first name">
+            <input type="text" formControlName="lName" placeholder="last name">
+            <select formControlName="city" placeholder="select">
+                <option value="" disabled selected>Select city</option>
+                <option value="Jerusalem">Jerusalem</option>
+                <option value="Tel-aviv">Tel-aviv</option>
+                <option value="Haifa">Haifa</option>
+                <option value="Beer-sheva">Beer-sheva</option>
+                <option value="Bnei-brak">Bnei-brak</option>
+                <option value="Ashdod">Ashdod</option>
+                <option value="Ramat-gan">Ramat-gan</option>
+                <option value="Petach-tikva">Petach-tikva</option>
+                <option value="Ashkelon">Ashkelon</option>
+                <option value="Bat-yam">Bat-yam</option>
+            </select>
+            <input type="text" formControlName="address" placeholder="address">
+            <!-- <input type="text" formControlName="city" placeholder="city"> -->
+            <input type="submit" value="register now!">
+        </form>
+    </div>
+</div>

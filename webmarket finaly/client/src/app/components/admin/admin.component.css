@@ -1,0 +1,40 @@
+.container {
+    height: 100vh;
+}
+
+.card {
+    width: 70%;
+    align-self: start;
+    margin: 0 auto;
+    padding: 35px 20px 55px 20px;
+    background-color: #fff;
+    border-radius: 0 0 0.35rem 0.35rem;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .35);
+}
+
+.alert {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    color: red;
+    width: 100%;
+    text-align: center;
+    font-weight: 900;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.sec, .fir {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.second, .first {
+    width: 50%;
+}
+
+.sub {
+    width: 100%;
+}

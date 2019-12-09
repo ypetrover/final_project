@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="card">
+        <h2>Add product</h2>
+        <div *ngFor="let a of adminForm; let i=index" id="index{{i}}">
+            <form class="form-group fir" [formGroup]="adminForm[i]" (ngSubmit)="addProducts()">
+                <input class="form-control first" type="text" placeholder="Product Name" formControlName="productName">
+                <select class="form-control first" #select formControlName="category" placeholder="select category">
+                    <option value="" disabled selected>Select category</option>
+                    <option *ngFor="let c of categories" value="{{c.categoryID}}">{{c.categoryName}}</option>
+                </select>
+                <input class="form-control first" type="text" formControlName="description" placeholder="description">
+                <input class="form-control first" type="text" formControlName="picture"
+                    placeholder="picture source (https://picsum.photos/120)">
+                <input class="form-control first" type="number" formControlName="unitPrice" placeholder="unitPrice"
+                    min="0.1">
+                <input class="form-control first" type="number" formControlName="unitsInStock"
+                    placeholder="unitsInStock" min="0">
+                <!-- <input *ngIf="current[i]" class="sub" type="button" value="add new product" (click)="addNewProduct(i)"> -->
+                <input *ngIf="current[i]" class="sub" type="button" value="clearFields" (click)="clearFields(i,select)">
+                <!-- <input *ngIf="!current[i]" class="sub" type="button" value="delete product" (click)="deleteProduct(i)"> -->
+            </form>
+        </div>
+        <input class="sub" type="button" (click)="addProducts(adminForm[adminForm.length-1].value)"
+            value="add products!">
+        <!-- <h1>{{adminForm[adminForm.length-1].value | json}}</h1> -->
+        <!-- <h1 *ngFor="let o of adminForm; let ii=index">{{adminForm[ii].value | json}}</h1> -->
+
+        <!-- <div *ngFor="let a of adminForm; let i=index" id="index{{i}}"> -->
+        <hr>
+        <h2>Update product</h2>
+        <form class="form-group sec" [formGroup]="updateForm" (ngSubmit)="update(category,name)">
+            <!-- <input type="text" placeholder="Product Name" formControlName="productName"> -->
+            <select class="form-control second" #name (change)="selectedProduct($event.target.value)"
+                formControlName="productName" placeholder="select">
+                <option value="" disabled selected>Select product</option>
+                <option *ngFor="let p of allProducts" value="{{p.productName}}">
+                    {{p.productName}}</option>
+            </select>
+            <select class="form-control second" #category formControlName="category" placeholder="select">
+                <option value="" disabled selected>Select category</option>
+                <option *ngFor="let c of categories" value="{{c.categoryID}}">{{c.categoryName}}</option>
+            </select>
+            <input class="form-control second" type="text" formControlName="description" placeholder="description">
+            <input class="form-control second" type="text" formControlName="picture"
+                placeholder="picture source (https://picsum.photos/120)">
+            <input class="form-control second" type="number" formControlName="unitPrice" placeholder="unitPrice"
+                min="0.1">
+            <input class="form-control second" type="number" formControlName="unitsInStock" placeholder="unitsInStock"
+                min="0">
+            <input class="btn btn-primary sub" type="submit" value="update product">
+            <!-- <input *ngIf="current[i]" class="sub" type="button" value="clearFields" (click)="clearFields(i)"> -->
+            <!-- <input *ngIf="!current[i]" class="sub" type="button" value="delete product" (click)="deleteProduct(i)"> -->
+        </form>
+        <span *ngIf="alert" class="alert">{{msg}}</span>
+    </div>
+</div>

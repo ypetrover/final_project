@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card">
+        <div class="head">
+            <h1>Your order</h1>
+            <div class="secndLine">
+                <input placeholder="smart search" (input)="find($event.target.value)">
+            </div>
+        </div>
+        <hr>
+        <div class="details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>product name</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                        <th>total</th>
+                        <th>picture</th>
+                    </tr>
+                </thead>
+                <tbody id="orderDetails">
+                    <tr *ngFor="let p of cartDetails" class="orderList">
+                        <td class="nameSearch">{{p.productName}}</td>
+                        <td>{{p.finalPrice/p.quantity | number}}</td>
+                        <td>{{p.quantity}}</td>
+                        <td>{{p.finalPrice | number}}</td>
+                        <td><img src="{{p.picture}}" alt="{{p.productName}}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="footerOrder">
+                <div class="pay">
+                    <h3>total to pay: {{total | number}}$</h3>
+                </div>
+                <div class="buttons btn btn-group">
+                    <button class="btn btn-secondary" (click)="back()">Back to webmarket</button>
+                    <button class="btn btn-secondary" (click)="checkOut()">Check out now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

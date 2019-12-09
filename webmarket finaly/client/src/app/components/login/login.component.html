@@ -1,0 +1,65 @@
+<div class="container">
+
+    <div class="login card">
+        <h2>LOGIN</h2>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-group">
+            <input type="email" formControlName="email" placeholder="email" class="form-control" (input)="alert=false">
+            <input type="password" formControlName="password" placeholder="password" class="form-control" (input)="alert=false">
+            <div class="btn-group" role="group">
+                <input type="submit" value="login" class="btn btn-secondary btnFrom">
+                <input type="button" value="register" routerLink="/register" class="btn btn-secondary btnFrom">
+                <span *ngIf="alert" class="alert">{{msg}}</span>
+            </div>
+        </form>
+        <hr class="hrAlert">
+        <div class="form-group" role="group">
+            <input type="button" (click)="signInWithGoogle()" value="login with google"
+                class="btn btn-secondary socialBtn">
+            <input type="button" (click)="signInWithFB()" value="login with facebook"
+                class="btn btn-secondary socialBtn">
+        </div>
+        <div class="socMedDe" *ngIf="user">
+            <img src="{{ user.photoUrl }}" class="pic">
+            <div>
+                <h4>{{ user.name }}</h4>
+                <p>{{ user.email }}</p>
+            </div>
+            <input type="button" (click)="signOut()" value="log out" class="btn btn-secondary logout">
+        </div>
+    </div>
+
+    <div class="about card">
+        <h2>ABOUT US</h2>
+        <hr>
+        <img class="storeImg"
+            src="https://image.cnbcfm.com/api/v1/image/105472351-1537971811913duarte_ca_fb.jpg?v=1565881386&w=678&h=381"
+            alt="webmarket">
+        <hr>
+        <div class="p">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur eius officia voluptates at id magni
+                autem
+                beatae ipsa laboriosam soluta iusto, dolor, neque a sint quidem ullam ducimus? Illum doloremque sed
+                obcaecati veritatis, accusantium architecto deleniti sapiente eligendi ipsa nulla laboriosam. Non a
+                voluptatem corporis alias earum molestiae deleniti illo eius omnis iste tempora tempore, natus, aliquid
+                fugit facere modi asperiores exercitationem. Nostrum, dignissimos nihil! Blanditiis tenetur quibusdam
+                natus
+                accusamus!</p>
+        </div>
+    </div>
+
+
+    <div class="info card">
+        <h2>INFORMATION</h2>
+        <hr>
+        <h3>sum details about our store...</h3>
+        <div class="p">
+            <h5>total orders: {{tOrders}}</h5>
+            <h5>total products: {{tProducts}}</h5>
+        </div>
+    </div>
+
+
+
+
+</div>

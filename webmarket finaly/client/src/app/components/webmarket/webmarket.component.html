@@ -1,0 +1,107 @@
+<app-header *ngIf="WmLoaded"></app-header>
+<div id="cart">
+    <div class="container">
+        <div class="top">
+            <button class="dropBtn btn btn-info" (click)="drop()">drop cart</button>
+            <span *ngIf="alert" class="alert">{{msg}}</span>
+        </div>
+        <div class="middle">
+            <ul class="cart-list">
+                <li *ngFor="let p of cart" #item id="{{p.productID}}">
+                    <div class="img">
+                        <img src="{{p.picture}}" alt="{{p.productName}}" title="{{p.productName}}" class="productPic">
+                    </div>
+                    <div class="details">
+                        <div class="productName">
+                            <h3>{{p.productName}}</h3>
+                        </div>
+                        <div class="quantity">
+                            <p>{{p.quantity}} units</p>
+                        </div>
+                    </div>
+                    <div class="rightList">
+                        <span class="icon del" (click)="removeItem(item)"></span>
+                        <p class="finalPrice">{{p.finalPrice}}$</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="footer-content">
+                <i class="icon-cart">
+                    <span class="number" aria-hidden="true" id="cartTotalItems">{{cartUnits}}</span>
+                </i>
+                <div class="buttons">
+                    {{sumPrice | number}}
+                </div>
+                <div class="to-pay" (click)="orderNow()">
+                    <p>Check-Out</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="webmarket">
+    <!-- -----navbar----- -->
+    <nav class="WMnav">
+        <div class="btnGroup btn-group">
+            <button type="button" class="btn btn-info size" id="all" (click)="all()">All Products</button>
+            <button #filterId *ngFor="let c of categories" id="{{c.categoryID}}" (click)="filter(filterId)"
+                type="button" class="btn btn-info size">{{c.categoryName}}</button>
+        </div>
+
+        <div class="middleContent">
+            <h1 *ngIf="categoryTitle" class="sectionTitle">{{categoryTitle}}</h1>
+        </div>
+        <div class="searchInput">
+            <input [(ngModel)]="query" placeholder="smart search">
+        </div>
+    </nav>
+
+    <!-- products -->
+    <div class="gridCards">
+
+        <ul class="productList">
+
+            <li *ngFor="let p of products | search:'productName,description':query">
+                <div class="product in-stock">
+                    <img src="{{p.picture}}" alt="{{p.productName}}" title="{{p.productName}}" class="productPic">
+                    <span id="{{p.productID}}" class="unitsAvailable"></span>
+                    <div class="productDetails">
+                        <div class="textContainer">
+                            <div class="price">
+                                <span>
+                                    {{p.unitPrice}}
+                                </span>
+                                <span class="currency">$</span>
+                            </div>
+                            <div class="productName">
+                                <strong>{{p.productName}}</strong>
+                            </div>
+                            <div class="description">
+                                <span>{{p.description}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addToCart">
+                        <div class="units">
+                            <span class="btnContainer">
+                                <button class="addBtn unitsBtn" type="button" (click)="add(units)"
+                                    aria-label="Add 1"></button>
+                            </span>
+                            <span class="btnContainer">
+                                <button class="subBtn unitsBtn" type="button" (click)="sub(units)"
+                                    aria-label="Sub 1"></button>
+                            </span>
+                            <input #units id="{{p.productID}}" class="unitsNumber" type="text"
+                                value="{{unitsFromCurrentCart(p.productID)}}" max="p.UnitsInStock">
+                        </div>
+                        <span class="inStock">{{p.UnitsInStock}} available</span>
+                        <button id="aou{{p.productID}}" class="addToBasket" type="button"
+                            (click)="addToCart(units)">{{addOrUpdate}}</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
