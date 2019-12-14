@@ -22,6 +22,17 @@ const admin = (req, res) => {
     });
 }
 
+const addCategory = (req, res) => {
+    console.log('44', req.body)
+    console.log('2', req.body.name)
+    const sql = `INSERT INTO categories(categoryName, description, picture)
+                VALUES ('${req.body.name}', '${req.body.desc}', '${req.body.pic}')`
+    connection.query(sql, (err, result) => {
+        if(err) throw err
+        res.json(result)
+    })
+}
+
 const addProducts = (req, res) => {
     console.log(req.body)
     // req.body.map(p => {
@@ -56,4 +67,4 @@ const updateProduct = (req, res) => {
 }
 
 
-module.exports = { admin, allProductsAdmin, addProducts, updateProduct }
+module.exports = { admin, allProductsAdmin, addCategory, addProducts, updateProduct }
