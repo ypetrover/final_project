@@ -48,6 +48,11 @@ export class ValidateService {
     if (user.password !== user.confirm) return false
     else return true
   }
+    
+  validateNewCategory(name) {
+    if (!name) return false
+    else return true
+  }
 
   validateAdmin(product) {
     if (product.productName == '' || product.category == '' || product.description == '' || product.unitPrice == '' || product.unitsInStock == '') return false
