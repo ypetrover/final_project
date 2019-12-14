@@ -31,6 +31,12 @@ export class WebmarketComponent implements OnInit {
       res => {
         let response: any = res;
         this.service.user = response.authData.data;
+
+        if(this.service.user.admin) {
+          this.service.isAdmin = true
+          this.router.navigate(['/admin'])
+        }
+        
         this.cartService.cartIsOpen(JSON.parse(this.storage)).subscribe(
           res => {
             this.carts = res
