@@ -35,6 +35,10 @@ h1, h2 {
     width: 50%;
 }
 
+.cat {
+    width: 33.33%;
+}
+
 .sub {
     width: 100%;
 }
