@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit {
   })
 
   ngOnInit() {
-    // if (!this.service.isAdmin) return this.router.navigate(['/webmarket'])
+    if (!this.service.isAdmin) return this.router.navigate(['/webmarket'])
     this.service.admin().subscribe(
       res => {
         console.log(res)
@@ -84,6 +84,29 @@ export class AdminComponent implements OnInit {
         this.alert = true;
         setTimeout(() => this.alert = false, 2000)
         console.log('updated', res)
+      },
+      err => console.log(err)
+    )
+  }
+
+  public addCategory(e) {
+    let newCategory = { name: e[0].value, desc: e[1].value, pic: e[2].value }
+    if (!this.validate.validateNewCategory(e[0].value)) {
+      this.msg = 'please fill the name of new category'
+      this.alert = true;
+      setTimeout(() => this.alert = false, 2000)
+      return false
+    }
+    this.service.addCategory(newCategory).subscribe(
+      res => {
+        console.log(res)
+        this.service.admin().subscribe(
+          res => {
+            console.log(res)
+            this.categories = res
+          },
+          err => console.log(err)
+        );
       },
       err => console.log(err)
     )
