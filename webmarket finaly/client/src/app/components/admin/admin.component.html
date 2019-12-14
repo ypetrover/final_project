@@ -1,5 +1,13 @@
 <div class="container">
     <div class="card">
+        <p>If you want to add a product in a new category, first add a new category</p>
+        <h2>Add category</h2>
+        <form class="form-group fir" (ngSubmit)="addCategory($event.target)">
+            <input class="form-control cat" type="text" name="categories name" placeholder="name" required>
+            <input class="form-control cat" type="text" name="description" placeholder="description(not require)">
+            <input class="form-control cat" type="text" name="picture" placeholder="picture(not require)">
+            <input class="btn btn-primary sub" type="submit" value="add category">
+        </form>
         <h2>Add product</h2>
         <div *ngFor="let a of adminForm; let i=index" id="index{{i}}">
             <form class="form-group fir" [formGroup]="adminForm[i]" (ngSubmit)="addProducts()">
@@ -20,7 +28,7 @@
                 <!-- <input *ngIf="!current[i]" class="sub" type="button" value="delete product" (click)="deleteProduct(i)"> -->
             </form>
         </div>
-        <input class="sub" type="button" (click)="addProducts(adminForm[adminForm.length-1].value)"
+        <input class="btn btn-primary sub" type="button" (click)="addProducts(adminForm[adminForm.length-1].value)"
             value="add products!">
         <!-- <h1>{{adminForm[adminForm.length-1].value | json}}</h1> -->
         <!-- <h1 *ngFor="let o of adminForm; let ii=index">{{adminForm[ii].value | json}}</h1> -->
