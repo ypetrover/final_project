@@ -19,6 +19,10 @@ router.get('/admin', (req, res) => {
     adminHandlers.admin(req, res)
 });
 
+router.post('/addcategory', (req, res) => {
+    adminHandlers.addCategory(req, res)
+})
+
 router.post('/addProducts', (req, res) => {
     adminHandlers.addProducts(req, res)
 })
