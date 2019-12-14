@@ -31,6 +31,10 @@ export class StoreService {
     return this.http.get('http://localhost:3000/api/admin')
   }
 
+  public addCategory(newCategory) {
+    return this.http.post('http://localhost:3000/api/addcategory' , newCategory)
+  }
+
   public addProducts(products) {
     return this.http.post('http://localhost:3000/api/addProducts', products)
   }
